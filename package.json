@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-browser-sync",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An Ember addon for integrating Browsersync.",
   "directories": {
     "doc": "doc",

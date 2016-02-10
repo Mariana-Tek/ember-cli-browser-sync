@@ -3,14 +3,15 @@
 let browserSync = require('browser-sync').create();
 module.exports = {
   name: 'ember-cli-browser-sync',
+  browserSyncInitialized: false,
   postBuild: function() {
-    browserSync.emitter.on('init', () => {
-      this.ui.writeLine('### Starting Browsersync!');
-    });
-    browserSync.init({
-      server: './dist',
-      open: false
-    });
-    return function() {};
+    if(!this.browserSyncInitialized) {
+      browserSync.init({
+        server: './dist',
+        open: false,
+        files: ['./dist/**/*']
+      });
+      this.browserSyncInitialized = true;
+    }
   }
 };
